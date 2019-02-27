@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +9,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainController">
    <children>
       <MenuBar maxWidth="1.7976931348623157E308" minWidth="257.0" prefHeight="25.0" StackPane.alignment="TOP_LEFT">
         <menus>
@@ -40,7 +35,7 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <SubScene fx:id="ss" height="735.0" layoutY="18.0" width="1200.0">
+      <SubScene fx:id="ss" height="758.0" layoutY="25.0" width="1200.0">
         <root>
           <Region />
         </root>
