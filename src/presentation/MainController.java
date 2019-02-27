@@ -44,7 +44,6 @@ public class MainController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setWidth((Double)newValue);
                 System.out.println("Width: " + (Double)newValue);
-                tc1.setsss(ss);
             }
         });
         ((StackPane)labelProgress.getParent()).heightProperty().addListener(new ChangeListener() {
