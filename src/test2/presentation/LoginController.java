@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -43,21 +44,33 @@ public class LoginController implements Initializable
     @FXML
     private JFXPasswordField password;
     
-    private InteractionCommunicatior interactionCommunicatior;
+    private InteractionCommunicatior interactionCommunicatior = new InteractionCommunicatior();
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        interactionCommunicatior = new InteractionCommunicatior();
+
     }
     
     @FXML
     private void handleLoginButtonAction(ActionEvent event)
     {
         List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText(), password.getText());
+
+        
         if (!sqlReturn.isEmpty())
         {
+            Iterator<String[]> it = sqlReturn.iterator();
+            while (it.hasNext())
+            {
+                for (String s : it.next())
+                {
+                    System.out.println(s);
+                }
+            }
+            
+            /*
             try
             {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -76,7 +89,7 @@ public class LoginController implements Initializable
             } catch (IOException ex)
             {
                 ex.printStackTrace();
-            }
+            }*/
 
         } else if (username.getText().isEmpty() || password.getText().isEmpty())
         {

@@ -1,7 +1,7 @@
 /*This is code written by Frederik Alexander Hounsvad
  * The use of this code in a non commercial and non exam environment is permitted
  */
-package test2;
+package test2.data;
 
 import java.util.List;
 

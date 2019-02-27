@@ -4,8 +4,8 @@
 package test2.domain;
 
 import com.google.common.hash.Hashing;
-import test2.DataInterface;
-import test2.Database;
+import test2.data.DataInterface;
+import test2.data.Database;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
