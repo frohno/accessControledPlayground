@@ -8,6 +8,9 @@ package presentation;
 import com.jfoenix.controls.JFXDecorator;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.svg.SVGGlyph;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -22,6 +25,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -55,15 +59,36 @@ public class LoginController implements Initializable
             {
                 username.getStyleClass().remove("wrong-credentials");
                 message.setText("");
-            } 
+            }
         });
 
         password.textProperty().addListener((observable, oldValue, newValue) ->
         {
-            if (!newValue.isEmpty()&& password.getStyleClass().contains("wrong-credentials"))
+            if (!newValue.isEmpty() && password.getStyleClass().contains("wrong-credentials"))
             {
                 password.getStyleClass().remove("wrong-credentials");
                 message.setText("");
+            }
+        });
+        
+        
+
+        
+    }
+    
+    @FXML
+    public void capslockCheck()
+    {
+        message.getScene().setOnKeyReleased(new EventHandler<javafx.scene.input.KeyEvent>()
+        {
+            @Override
+            public void handle(javafx.scene.input.KeyEvent event)
+            {
+                if (event.getCode() == KeyCode.CAPS)
+                {
+                    message.setText("Caps Lock is on!");
+                    //System.out.println(Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK));
+                }
             }
         });
     }
@@ -72,7 +97,6 @@ public class LoginController implements Initializable
     private void handleLoginButtonAction()
     {
         List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText().toLowerCase(), password.getText());
-
         if (!sqlReturn.isEmpty())
         {
             Iterator<String[]> it = sqlReturn.iterator();
@@ -120,14 +144,15 @@ public class LoginController implements Initializable
         {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-            JFXDecorator decorator = new JFXDecorator(stage, root);
+            JFXDecorator decorator = new JFXDecorator(stage, root, false, true, true);
             decorator.setCustomMaximize(true);
+            decorator.setGraphic(new SVGGlyph());
             Scene scene = new Scene(decorator);
-            scene.getStylesheets().add(getClass().getResource("css/dark-theme.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("css/decorator.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
-
             stage.setTitle("Sanitas Overview");
+
         } catch (IOException ex)
         {
             ex.printStackTrace();
