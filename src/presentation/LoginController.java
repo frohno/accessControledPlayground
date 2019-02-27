@@ -36,29 +36,43 @@ public class LoginController implements Initializable
 
     private double xOffset = 0;
     private double yOffset = 0;
-    
+
     @FXML
     private Label message;
     @FXML
     private JFXTextField username;
     @FXML
     private JFXPasswordField password;
-    
-    private InteractionCommunicatior interactionCommunicatior = new InteractionCommunicatior();
 
+    private InteractionCommunicatior interactionCommunicatior = new InteractionCommunicatior();
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
+        username.textProperty().addListener((observable, oldValue, newValue) ->
+        {
+            if (!newValue.isEmpty() && username.getStyleClass().contains("wrong-credentials"))
+            {
+                username.getStyleClass().remove("wrong-credentials");
+                message.setText("");
+            } 
+        });
 
+        password.textProperty().addListener((observable, oldValue, newValue) ->
+        {
+            if (!newValue.isEmpty()&& password.getStyleClass().contains("wrong-credentials"))
+            {
+                password.getStyleClass().remove("wrong-credentials");
+                message.setText("");
+            }
+        });
     }
-    
+
     @FXML
     private void handleLoginButtonAction(ActionEvent event)
     {
         List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText(), password.getText());
 
-        
         if (!sqlReturn.isEmpty())
         {
             Iterator<String[]> it = sqlReturn.iterator();
@@ -69,38 +83,22 @@ public class LoginController implements Initializable
                     System.out.println(s);
                 }
             }
-            
-            /*
-            try
-            {
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.hide();
-                Parent root = FXMLLoader.load(getClass().getResource("admin.fxml"));
-                JFXDecorator decorator = new JFXDecorator(stage, root);
-                decorator.setCustomMaximize(true);
-                //decorator.setGraphic(new SVGGlyph());
-
-                stage.setTitle("Sanitas Overview | Administation");
-
-                Scene scene = new Scene(decorator, 1297, 829);
-                scene.getStylesheets().add(getClass().getResource("mainWindow.css").toExternalForm());
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex)
-            {
-                ex.printStackTrace();
-            }*/
-
+            loadMain();
+            closeStage();
         } else if (username.getText().isEmpty() || password.getText().isEmpty())
         {
             System.err.println("Please enter a username and a password!");
             message.setText("Please enter a username and a password!");
+            username.getStyleClass().add("wrong-credentials");
+            password.getStyleClass().add("wrong-credentials");
         } else
         {
             System.err.println("Wrong username or password!");
             message.setText("Wrong username or password!");
             username.setText("");
             password.setText("");
+            username.getStyleClass().add("wrong-credentials");
+            password.getStyleClass().add("wrong-credentials");
 
         }
     }
@@ -118,40 +116,20 @@ public class LoginController implements Initializable
 
     void loadMain()
     {
-
         try
         {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-            root.setOnMousePressed(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent event)
-                {
-                    xOffset = event.getSceneX();
-                    yOffset = event.getSceneY();
-                }
-            });
-            root.setOnMouseDragged(new EventHandler<MouseEvent>()
-            {
-                @Override
-                public void handle(MouseEvent event)
-                {
-                    stage.setX(event.getScreenX() - xOffset);
-                    stage.setY(event.getScreenY() - yOffset);
-                }
-            });
             Scene scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
-
             stage.setScene(scene);
             stage.show();
 
-            stage.setTitle("Library Assistant");
+            stage.setTitle("Sanitas Overview");
         } catch (IOException ex)
         {
             ex.printStackTrace();
         }
+
     }
 
 }

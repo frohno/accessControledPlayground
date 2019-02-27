@@ -22,6 +22,7 @@ public class Main extends Application {
         Parent root = loader.load();
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("css/dark-theme.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
     }
