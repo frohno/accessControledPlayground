@@ -21,7 +21,7 @@
             </SubScene>
          </children>
       </AnchorPane>
-      <MenuBar maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="257.0" prefHeight="25.0" StackPane.alignment="TOP_LEFT">
+      <MenuBar maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="257.0" prefHeight="25.0" style="-fx-background-color: #3d404a;" StackPane.alignment="TOP_LEFT">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>

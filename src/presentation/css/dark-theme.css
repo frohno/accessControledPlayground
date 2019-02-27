@@ -358,3 +358,7 @@
     -fx-font-style: italic;
     -fx-fill: -fx-primary;
 }
+
+.top-menu-bar {
+    -fx-background-color: derive (-fx-primary, 20%);
+}

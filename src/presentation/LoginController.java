@@ -152,6 +152,7 @@ public class LoginController implements Initializable
             decorator.setGraphic(new SVGGlyph());
             Scene scene = new Scene(decorator);
             scene.getStylesheets().add(getClass().getResource("css/decorator.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("css/dark-theme.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
             stage.setTitle("Sanitas Overview");
