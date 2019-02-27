@@ -167,10 +167,8 @@ public class LoginController implements Initializable
     @FXML
     private void skip(ContextMenuEvent event) {
         loadMain();
+        closeStage();
     }
 
-    @FXML
-    private void skip(InputMethodEvent event) {
-    }
 
 }

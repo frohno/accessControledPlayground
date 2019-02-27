@@ -4,7 +4,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="presentation.Test2Controller">
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.Test2Controller">
     <stylesheets>
         <URL value="@/presentation/css/dark-theme.css" />
     </stylesheets>

@@ -31,8 +31,6 @@ public class MainController implements Initializable {
     public SubScene ss;
     
     private TestController tc1;
-    
-    private boolean isOn = false;
 
     /**
      * Initializes the controller class.
@@ -57,8 +55,10 @@ public class MainController implements Initializable {
         try
         {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
+            Parent root = loader.load();
+            ss.setRoot(root);
             tc1 = loader.getController();
-            ss.setRoot(loader.load());
+            tc1.setsss(ss);
         } catch (IOException ex)
         {
             ex.printStackTrace();

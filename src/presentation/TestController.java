@@ -60,6 +60,7 @@ public class TestController implements Initializable
         try
         {
             ss.setRoot(FXMLLoader.load(getClass().getResource("test2.fxml")));
+            
         } catch (IOException ex)
         {
             ex.printStackTrace();
