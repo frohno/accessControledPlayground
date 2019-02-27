@@ -6,12 +6,22 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.MainController">
    <children>
-      <MenuBar maxWidth="1.7976931348623157E308" minWidth="257.0" prefHeight="25.0" StackPane.alignment="TOP_LEFT">
+      <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="756.0">
+         <children>
+            <SubScene fx:id="ss" height="754.0" width="1200.0" AnchorPane.topAnchor="25.0">
+              <root>
+                <Region />
+              </root>
+            </SubScene>
+         </children>
+      </AnchorPane>
+      <MenuBar maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="257.0" prefHeight="25.0" StackPane.alignment="TOP_LEFT">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -35,10 +45,5 @@
             <Insets left="10.0" />
          </padding>
       </Label>
-      <SubScene fx:id="ss" height="758.0" layoutY="25.0" width="1200.0">
-        <root>
-          <Region />
-        </root>
-      </SubScene>
    </children>
 </StackPane>
