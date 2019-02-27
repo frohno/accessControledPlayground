@@ -1,3 +1,4 @@
+
 /*This is code written by Frederik Alexander Hounsvad
  * The use of this code in a non commercial and non exam environment is permitted
  */
@@ -23,6 +24,7 @@ public class InteractionHandler implements InteractionInterface {
 
     @Override
     public List<String[]> sendLogin(String username, String password) {
-        return userDatabase.sendQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password +"'", "username", "password", "full_name", "institution", "employee_id"); //hashString(hashString(username) + hashString(password))
+        return userDatabase.sendQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + hashString(hashString(username) + hashString(password)) +"'", "username", "password", "full_name", "institution", "employee_id");
     }
 }
+
