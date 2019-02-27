@@ -69,9 +69,9 @@ public class LoginController implements Initializable
     }
 
     @FXML
-    private void handleLoginButtonAction(ActionEvent event)
+    private void handleLoginButtonAction()
     {
-        List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText(), password.getText());
+        List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText().toLowerCase(), password.getText());
 
         if (!sqlReturn.isEmpty())
         {
@@ -104,7 +104,7 @@ public class LoginController implements Initializable
     }
 
     @FXML
-    private void handleCancelButtonAction(ActionEvent event)
+    private void handleCancelButtonAction()
     {
         System.exit(0);
     }
@@ -120,7 +120,10 @@ public class LoginController implements Initializable
         {
             Stage stage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-            Scene scene = new Scene(root);
+            JFXDecorator decorator = new JFXDecorator(stage, root);
+            decorator.setCustomMaximize(true);
+            Scene scene = new Scene(decorator);
+            scene.getStylesheets().add(getClass().getResource("css/dark-theme.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
 
