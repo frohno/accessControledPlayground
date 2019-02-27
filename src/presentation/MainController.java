@@ -13,6 +13,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.SubScene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
@@ -27,7 +28,11 @@ public class MainController implements Initializable {
     @FXML
     private Label labelProgress;
     @FXML
-    private SubScene ss;
+    public SubScene ss;
+    
+    private TestController tc1;
+    
+    private boolean isOn = false;
 
     /**
      * Initializes the controller class.
@@ -39,6 +44,7 @@ public class MainController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setWidth((Double)newValue);
                 System.out.println("Width: " + (Double)newValue);
+                tc1.setsss(ss);
             }
         });
         ((StackPane)labelProgress.getParent()).heightProperty().addListener(new ChangeListener() {
@@ -51,7 +57,9 @@ public class MainController implements Initializable {
         
         try
         {
-            ss.setRoot(FXMLLoader.load(getClass().getResource("test.fxml")));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
+            tc1 = loader.getController();
+            ss.setRoot(loader.load());
         } catch (IOException ex)
         {
             ex.printStackTrace();

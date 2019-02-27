@@ -25,8 +25,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ZoomEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -158,6 +161,16 @@ public class LoginController implements Initializable
             ex.printStackTrace();
         }
 
+    }
+
+
+    @FXML
+    private void skip(ContextMenuEvent event) {
+        loadMain();
+    }
+
+    @FXML
+    private void skip(InputMethodEvent event) {
     }
 
 }

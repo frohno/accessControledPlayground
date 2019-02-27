@@ -39,6 +39,8 @@ public class TestController implements Initializable
 
     @FXML
     private Label message;
+    
+    private SubScene ss = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
@@ -46,12 +48,18 @@ public class TestController implements Initializable
 
     }
 
+    public void setsss(SubScene ss) {
+        this.ss = ss;
+    }
+    
+    
+
     @FXML
     private void accept()
     {
         try
         {
-            message.getScene().setRoot(FXMLLoader.load(getClass().getResource("test2.fxml")));
+            ss.setRoot(FXMLLoader.load(getClass().getResource("test2.fxml")));
         } catch (IOException ex)
         {
             ex.printStackTrace();
