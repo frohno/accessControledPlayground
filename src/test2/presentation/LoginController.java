@@ -109,7 +109,7 @@ public class LoginController implements Initializable
         try
         {
             Stage stage = new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/library/assistant/ui/main/main.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
             root.setOnMousePressed(new EventHandler<MouseEvent>()
             {
                 @Override

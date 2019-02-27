@@ -8,14 +8,16 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="LoginTest.jar" size="9567" download="eager" />
+    <jar href="LoginTest.jar" size="20473" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
     <jar href="lib\guava-23.0-javadoc.jar" size="6360027" download="eager" />
     <jar href="lib\guava-23.0.jar" size="2614708" download="eager" />
     <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+    <jar href="lib\postgresql-42.2.5.jar" size="825943" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="LoginTest" >
     <param name="requiredFXVersion" value="8.0+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="test2.Main"  name="LoginTest" />
+  <jfx:javafx-desc  width="800" height="600" main-class="test2.presentation.Main"  name="LoginTest" />
   <update check="always"/>
 </jnlp>
