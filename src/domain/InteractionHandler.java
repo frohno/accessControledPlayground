@@ -24,7 +24,7 @@ public class InteractionHandler implements InteractionInterface {
 
     @Override
     public List<String[]> sendLogin(String username, String password) {
-        return userDatabase.sendQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + hashString(hashString(username) + hashString(password)) +"'", "username", "password", "full_name", "institution", "employee_id");
+        return userDatabase.sendQuery("SELECT username, full_name, institution, employee_id FROM users WHERE username = '" + username + "' AND password = '" + hashString(hashString(username) + hashString(password)) +"'", "username", "full_name", "institution", "employee_id");
     }
 }
 

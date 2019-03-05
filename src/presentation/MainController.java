@@ -31,6 +31,10 @@ public class MainController implements Initializable {
     public SubScene ss;
     
     private TestController tc1;
+    
+    private double originalX = 1200;
+    private double originalY = 800-(25+17);
+    
 
     /**
      * Initializes the controller class.
@@ -41,14 +45,15 @@ public class MainController implements Initializable {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setWidth((Double)newValue);
-                System.out.println("Width: " + (Double)newValue);
+                
+                System.out.println("Width: " + (Double)newValue + "Scale: " + (ss.getWidth()/originalX));
             }
         });
         ((StackPane)labelProgress.getParent()).heightProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setHeight(((Double)newValue)-(25+17));
-                System.out.println("Height: " + (((Double)newValue)-(25+17)));
+                System.out.println("Height: " + (((Double)newValue)-(25+17)) + "Scale: " + (ss.getHeight()/originalY));
             }
         });
         
@@ -65,5 +70,6 @@ public class MainController implements Initializable {
         }
         
     }
+    
     
 }

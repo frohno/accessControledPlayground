@@ -46,3 +46,24 @@ MA 02110-1301  USA
     -fx-background-color: -fx-secondary;
 }
 
+.jfx-decorator .button{
+    -fx-text-color: #ffffff;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-font-size: 12pt;
+}
+
+.jfx-decorator .button:focused .button:hover .button:selected{
+    -fx-text-fill: #ffffff;
+    -fx-focus-color: transparent;
+    -fx-background-color: -fx-secondary;
+    -fx-faint-focus-color: -fx-secondary;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
+    -fx-font-size: 12pt;
+}

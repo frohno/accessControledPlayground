@@ -51,6 +51,7 @@
 {
     -jfx-unfocus-color: #ef5350;
     -jfx-focus-color: #ef5350;
+    -fx-text-fill:#ef5350
 }
 
 /*Main Screen CSS Styling starts here*/

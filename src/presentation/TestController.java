@@ -18,16 +18,22 @@
  */
 package presentation;
 
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -40,12 +46,34 @@ public class TestController implements Initializable
     @FXML
     private Label message;
     
+    @FXML
+    private TableView<UserWrapper> tableview;
+    
+    
     private SubScene ss = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-
+      TableColumn<UserWrapper, String> userNameCol = new TableColumn<>("Username");
+      TableColumn<UserWrapper, String> fullNameCol = new TableColumn<>("Full name");
+      TableColumn<UserWrapper, String> institutionCol = new TableColumn<>("Institution");
+      TableColumn<UserWrapper, String> employeeIDCol = new TableColumn<>("Employee ID");
+      
+      tableview.getColumns().addAll(userNameCol, fullNameCol, institutionCol, employeeIDCol);
+      
+      userNameCol.setCellValueFactory(new PropertyValueFactory<>("userName"));
+      fullNameCol.setCellValueFactory(new PropertyValueFactory<>("fullName"));
+      institutionCol.setCellValueFactory(new PropertyValueFactory<>("institution"));
+      employeeIDCol.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
+      
+      ObservableList<UserWrapper> list = FXCollections.observableArrayList(
+              new UserWrapper("a", "b", "c", "l"),
+              new UserWrapper("e", "a", "g", "h")
+      );
+      
+      tableview.setItems(list);
+      
     }
 
     public void setsss(SubScene ss) {
@@ -67,10 +95,5 @@ public class TestController implements Initializable
         }
     }
     
-    @FXML
-    private void decline()
-    {
-        message.setVisible(true);
-    }
 
 }
