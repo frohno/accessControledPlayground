@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301  USA
  */
-package presentation;
+package client.presentation;
 
 
 import java.io.IOException;
@@ -67,12 +67,7 @@ public class TestController implements Initializable
       institutionCol.setCellValueFactory(new PropertyValueFactory<>("institution"));
       employeeIDCol.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
       
-      ObservableList<UserWrapper> list = FXCollections.observableArrayList(
-              new UserWrapper("a", "b", "c", "l"),
-              new UserWrapper("e", "a", "g", "h")
-      );
-      
-      tableview.setItems(list);
+      tableview.setItems(UserWrapper.generateUsers(LoginController.uName, LoginController.pWord));
       
     }
 

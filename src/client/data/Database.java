@@ -1,4 +1,4 @@
-package data;
+package client.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javax.net.ssl.SSLSocketFactory;
+import org.postgresql.ssl.NonValidatingFactory;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -41,7 +43,7 @@ public class Database implements DataInterface {
         List<String[]> output = null;
         try {
             DriverManager.registerDriver(new org.postgresql.Driver());
-            Class.forName("org.postgresql.Driver");
+            Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
             Statement stmt = conn.createStatement();
             sqlReturnValues = stmt.executeQuery(query);
