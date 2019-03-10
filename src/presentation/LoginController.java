@@ -56,16 +56,19 @@ public class LoginController implements Initializable {
     @FXML
     private JFXPasswordField password;
 
+    public static String uName = null;
+    public static String pWord = null;
+
     boolean caps = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
 
-    private InteractionCommunicatior interactionCommunicatior = new InteractionCommunicatior();
+    private InteractionCommunicatior interactionCommunicatior = InteractionCommunicatior.getInstance();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         username.textProperty().addListener((observable, oldValue, newValue)
                 -> {
             if (!newValue.isEmpty() && username.getStyleClass().contains("wrong-credentials")) {
-                username.getStyleClass().remove("wrong-credentials");                
+                username.getStyleClass().remove("wrong-credentials");
                 password.getStyleClass().remove("wrong-credentials");
                 message.setText("");
             }
@@ -118,7 +121,7 @@ public class LoginController implements Initializable {
                 }
                 if (caps) {
                     message.setText("Caps Lock is on!");
-                } else if (message.getText() == "Caps Lock is on!"){
+                } else if (message.getText() == "Caps Lock is on!") {
                     message.setText("");
                 }
             }
@@ -127,14 +130,13 @@ public class LoginController implements Initializable {
 
     @FXML
     private void handleLoginButtonAction() {
+        System.out.println(System.currentTimeMillis());
         List<String[]> sqlReturn = interactionCommunicatior.sendLogin(username.getText().toLowerCase(), password.getText());
-        if (!sqlReturn.isEmpty()) {
-            Iterator<String[]> it = sqlReturn.iterator();
-            while (it.hasNext()) {
-                for (String s : it.next()) {
-                    System.out.println(s);
-                }
-            }
+        if (sqlReturn != null && !sqlReturn.isEmpty()) {
+            uName = username.getText();
+            pWord = password.getText();
+            System.out.println(System.currentTimeMillis());
+
             loadMain();
             closeStage();
         } else if (username.getText().isEmpty() || password.getText().isEmpty()) {
@@ -183,8 +185,11 @@ public class LoginController implements Initializable {
 
     @FXML
     private void skip(ContextMenuEvent event) {
+        /*
         loadMain();
         closeStage();
+         */
+        //Can't use it with sql DB
     }
 
 }

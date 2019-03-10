@@ -67,12 +67,7 @@ public class TestController implements Initializable
       institutionCol.setCellValueFactory(new PropertyValueFactory<>("institution"));
       employeeIDCol.setCellValueFactory(new PropertyValueFactory<>("employeeID"));
       
-      ObservableList<UserWrapper> list = FXCollections.observableArrayList(
-              new UserWrapper("a", "b", "c", "l"),
-              new UserWrapper("e", "a", "g", "h")
-      );
-      
-      tableview.setItems(list);
+      tableview.setItems(UserWrapper.generateUsers(LoginController.uName, LoginController.pWord));
       
     }
 

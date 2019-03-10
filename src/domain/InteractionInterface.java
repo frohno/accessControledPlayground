@@ -11,4 +11,5 @@ import java.util.List;
  */
 public interface InteractionInterface {
     public List<String[]> sendLogin(String username, String password);
+    public List<String[]> getUsers(String username, String password);
 }

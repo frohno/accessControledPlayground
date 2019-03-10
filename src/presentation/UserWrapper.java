@@ -18,6 +18,12 @@
  */
 package presentation;
 
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+
 /**
  *
  * @author Oliver
@@ -34,6 +40,18 @@ public class UserWrapper {
         this.institution = institution;
         this.employeeID = employeeID;
     }
+    
+    public UserWrapper(String[] array)
+    {
+        if (array.length != 4)
+        {
+            throw new IllegalArgumentException("Wrong array length");
+        }
+        this.userName = array[0];
+        this.fullName = array[1];
+        this.institution = array[2];
+        this.employeeID = array[3];
+    }
 
     public String getUserName() {
         return userName;
@@ -49,6 +67,14 @@ public class UserWrapper {
 
     public String getEmployeeID() {
         return employeeID;
+    }
+    
+    public static ObservableList<UserWrapper> generateUsers(String uName, String pWord)
+    {
+       List<String[]> userData = InteractionCommunicatior.getInstance().getUsers(uName, pWord);
+       List<UserWrapper> userWrapperList = new ArrayList<>();
+       userData.forEach(sa->userWrapperList.add(new UserWrapper(sa)));
+       return FXCollections.observableArrayList(userWrapperList);
     }
     
     
