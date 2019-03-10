@@ -6,6 +6,7 @@ package server;
 import java.net.Socket;
 import com.frohno.pseudossl.PseudoSSLServer;
 import java.util.List;
+import 
 
 /**
  *
@@ -42,6 +43,8 @@ public class ClientHandler extends Thread {
         switch (input[0]) {
             case "Login":
                 return sendLogin(input[1], input[2]);
+            case "UserList":
+                return getUserList(input[1], input[2]);
             default:
                 throw new AssertionError();
         }
@@ -50,5 +53,9 @@ public class ClientHandler extends Thread {
     public List<String[]> sendLogin(String username, String password) {
         return db.sendQuery("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'", "username", "full_name", "institution", "employee_id");
     }
+    public List<String[]> getUserList(String username, String password){
+        return db.sendQuery("SELECT * FROM users WHERE (SELECT password FROM users WHERE username = '" + username + "' limit 1) = '" + password + "' LIMIT 100", "username", "full_name", "institution", "employee_id");
+    }
+    
 
 }
