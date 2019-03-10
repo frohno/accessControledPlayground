@@ -1,7 +1,7 @@
 /*This is code written by Frederik Alexander Hounsvad
  * The use of this code in a non commercial and non exam environment is permitted
  */
-package presentation;
+package client.presentation;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,14 +46,14 @@ public class MainController implements Initializable {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setWidth((Double)newValue);
                 
-                System.out.println("Width: " + (Double)newValue + "Scale: " + (ss.getWidth()/originalX));
+                //System.out.println("Width: " + (Double)newValue + "Scale: " + (ss.getWidth()/originalX));
             }
         });
         ((StackPane)labelProgress.getParent()).heightProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 ss.setHeight(((Double)newValue)-(25+17));
-                System.out.println("Height: " + (((Double)newValue)-(25+17)) + "Scale: " + (ss.getHeight()/originalY));
+                //System.out.println("Height: " + (((Double)newValue)-(25+17)) + "Scale: " + (ss.getHeight()/originalY));
             }
         });
         

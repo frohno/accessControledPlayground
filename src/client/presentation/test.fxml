@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="735.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.presentation.TestController">
+    <stylesheets>
+        <URL value="@/client/presentation/css/dark-theme.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableview" layoutX="92.0" layoutY="80.0" prefHeight="549.0" prefWidth="1027.0" />
+   </children>
+</AnchorPane>
