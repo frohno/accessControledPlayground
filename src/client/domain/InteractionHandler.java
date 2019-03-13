@@ -19,7 +19,7 @@ import java.util.List;
 public class InteractionHandler implements InteractionInterface
 {
 
-    String ip = "80.161.136.78"; //"80.161.136.78"
+    String ip = "192.168.43.119"; //"80.161.136.78"
     int port = 25565;
 
     private String hashString(String input)
@@ -33,7 +33,7 @@ public class InteractionHandler implements InteractionInterface
         List<String[]> output = null;
         try
         {
-            String ip = "80.161.136.78"; //"80.161.136.78"
+            String ip = "192.168.43.119"; //"80.161.136.78"
             int port = 25565;
             //Creating connection
             //System.out.println("Waiting for a connection on " + ip + ":" + port);
@@ -56,7 +56,7 @@ public class InteractionHandler implements InteractionInterface
         List<String[]> output = null;
         try
         {
-            String ip = "80.161.136.78"; //"80.161.136.78"
+            String ip = "192.168.43.119"; //"80.161.136.78"
             int port = 25565;
             //Creating connection
             //System.out.println("Waiting for a connection on " + ip + ":" + port);

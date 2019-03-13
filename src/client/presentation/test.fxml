@@ -9,6 +9,9 @@
         <URL value="@/client/presentation/css/dark-theme.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="tableview" layoutX="92.0" layoutY="80.0" prefHeight="549.0" prefWidth="1027.0" />
+      <TableView fx:id="tableview" layoutX="92.0" layoutY="80.0" prefHeight="549.0" prefWidth="1027.0">
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy></TableView>
    </children>
 </AnchorPane>
