@@ -239,10 +239,10 @@ public class LoginController implements Initializable
     @FXML
     private void skip(ContextMenuEvent event)
     {
-        /*
+        
         loadMain();
         closeStage();
-         */
+         
         //Can't use it with sql DB
     }
 

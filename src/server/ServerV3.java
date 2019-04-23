@@ -19,7 +19,7 @@ public class ServerV3 {
 
     private void start() {
         try {
-            ServerSocket ss = new ServerSocket(25665);//1028
+            ServerSocket ss = new ServerSocket(25565);//1028
             while (true) {
                 System.out.println("Waiting for connection...");
                 Socket socketToClient = ss.accept();

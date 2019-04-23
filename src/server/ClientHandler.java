@@ -35,6 +35,7 @@ public class ClientHandler extends Thread {
             System.out.println("CL: Terminated");
         } catch (Exception e) {
             e.printStackTrace();
+            
         }
     }
 

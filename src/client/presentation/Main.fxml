@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -33,11 +34,13 @@
       </MenuBar>
       <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="756.0">
          <children>
-            <SubScene fx:id="ss" height="754.0" width="1200.0" AnchorPane.topAnchor="25.0">
+            <SubScene fx:id="ss" height="703.0" layoutY="76.0" width="1200.0" AnchorPane.topAnchor="76.0">
               <root>
                 <Region />
               </root>
             </SubScene>
+            <Button layoutX="14.0" layoutY="37.0" mnemonicParsing="false" onAction="#loadOne" text="Button" />
+            <Button layoutX="97.0" layoutY="37.0" mnemonicParsing="false" onAction="#loadTwo" text="Button" />
          </children>
       </AnchorPane>
       <Label fx:id="labelProgress" maxWidth="1.7976931348623157E308" prefHeight="17.0" style="-fx-background-color: lightGray;" text="No current process:" StackPane.alignment="BOTTOM_LEFT">
